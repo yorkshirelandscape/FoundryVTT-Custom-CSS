@@ -2,7 +2,7 @@
     "CCSS": {
         "settings": {
             "CustomCss":"Custom CSS",
-            "CustomCssHint": "Make sure you validate your CSS and use !important",
+            "CustomCssHint": "Make sure you validate your CSS",
             "settingsMenu": {
                 "name": "Custom CSS Rules",
                 "label": "Custom CSS Rules",
@@ -17,6 +17,13 @@
             "startMessage": "Migrating Custom CSS data...",
             "endMessage": "...Custom CSS migration complete.",
             "uiMessage": "Custom CSS data Migrated. Check module settings."
+        },
+        "stylesheet": {
+            "globalStyles": "Global Styles",
+            "globalStylesHint": "These styles apply to all users.",
+            "userStyles": "User Styles",
+            "userStylesHint": "These styles apply only to you.",
+            "btnSave": "Save"
         }
     }
 }

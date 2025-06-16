@@ -2,7 +2,7 @@
     "id": "custom-css",
     "title": "Custom CSS",
     "description": "Add custom CSS to your world",
-    "version": "2.3.1",
+    "version": "2.3.2",
     "compatibility": {
         "minimum": 10,
         "verified": 12
@@ -46,6 +46,11 @@
             "lang": "en",
             "name": "English",
             "path": "languages/en.json"
+        },
+	{
+            "lang": "pt-BR",
+            "name": "Português (Brasil)",
+            "path": "languages/pt-BR.json"
         }
     ],
     "manifest": "https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/releases/latest/download/module.json",
