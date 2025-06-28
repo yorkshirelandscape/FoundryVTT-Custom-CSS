@@ -47,10 +47,15 @@
             "name": "English",
             "path": "languages/en.json"
         },
-	{
+        {
             "lang": "pt-BR",
             "name": "Português (Brasil)",
             "path": "languages/pt-BR.json"
+        },
+        {
+            "lang": "ja",
+            "name": "日本語",
+            "path": "languages/ja.json"
         }
     ],
     "manifest": "https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/releases/latest/download/module.json",
