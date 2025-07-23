@@ -5,6 +5,17 @@ on:
     tags:
       - '*'
 
+      # adapt this using bash
+      # python scripts/update_readme.py
+      # with open('README.stub') as f:
+      #     readme_stub = f.read()
+
+      # # simple replacement, use whatever stand-in value is useful for you.
+      # readme = readme_stub.replace('{TOC}',toc_str)
+
+      # with open('README.md','w') as f:
+      #     f.write(readme)
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,7 +23,12 @@ jobs:
     - uses: actions/checkout@v2
       with:
         submodules: 'recursive'
-
+        
+    - name: include CHANGELOG in README
+      run: |
+        changelog=$(cat CHANGELOG.md)
+        sed -i "s|{CHANGELOG}|$changelog|g" README.md
+    
     # get part of the tag after the `v`
     - name: Extract tag version number
       id: get_version
