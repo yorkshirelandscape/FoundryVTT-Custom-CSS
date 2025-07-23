@@ -21,12 +21,12 @@ jobs:
     - name: Set tag variable
       id: set_tag
       run: |
-        if [ "${{ github.event_name }}" -eq "push" ]; then
+        if [ "${{ github.event_name }}" = "push" ]; then
           TAG="${GITHUB_REF##*/}"
         elif [ -n "${{ github.event.inputs.tag }}" ]; then
           TAG="${{ github.event.inputs.tag }}"
         else
-          TAG=$(git describe --tags --abbrev=0)
+          TAG=$(git tag --sort=-creatordate | head -n 1)
         fi
         echo "tag=$TAG" >> $GITHUB_OUTPUT
 
