@@ -17,6 +17,7 @@ jobs:
     - uses: actions/checkout@v2
       with:
         submodules: 'recursive'
+        fetch-depth: 0
 
     - name: Set tag variable
       id: set_tag
@@ -30,6 +31,12 @@ jobs:
         fi
         echo "tag=$TAG" >> $GITHUB_OUTPUT
 
+    - name: Checkout selected tag (for manual runs)
+      if: github.event_name == 'workflow_dispatch'
+      run: |
+        git fetch --tags
+        git checkout ${{ steps.set_tag.outputs.tag }}
+
     - name: Append changelog to README.stub
       id: create_readme
       run: |
@@ -40,8 +47,6 @@ jobs:
     - name: Extract tag version number
       id: get_version
       uses: battila7/get-version-action@v2
-      with:
-        tag: ${{ steps.set_tag.outputs.tag }}
 
     - name: Echo tag output
       run: echo ${{ steps.get_version.outputs.version-without-v }}
