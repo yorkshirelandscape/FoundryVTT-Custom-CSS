@@ -2,7 +2,6 @@
     "CCSS": {
         "settings": {
             "CustomCss":"Custom CSS",
-            "CustomCssHint": "Se certifique de validar seu CSS",
             "settingsMenu": {
                 "name": "Regras do Custom CSS",
                 "label": "Regras do Custom CSS",

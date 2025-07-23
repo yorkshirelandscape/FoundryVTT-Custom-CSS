@@ -8,7 +8,12 @@
 ## Pending Release
 - None
 
-## [2.3.3](https://github.com/yorkshirelandscape/token_frames/tree/2.3.3)<sup>[&Delta;](https://github.com/yorkshirelandscape/token_frames/compare/2.3.2...2.3.3)</sup> &mdash;&mdash; *2025-07-23* &mdash;&mdash; Final V12 Release
+## [2.3.4](https://github.com/yorkshirelandscape/token_frames/tree/2.3.4)<sup>[&Delta;](https://github.com/yorkshirelandscape/token_frames/compare/2.3.3...2.3.4)</sup> &mdash;&mdash; *2025-07-23* &mdash;&mdash; Final V12 Release
+
+- Just some dev ops stuff. Nothing to write home about.
+- Also removed unused localization string.
+
+## [2.3.3](https://github.com/yorkshirelandscape/token_frames/tree/2.3.3)<sup>[&Delta;](https://github.com/yorkshirelandscape/token_frames/compare/2.3.2...2.3.3)</sup> &mdash;&mdash; *2025-07-23*
 
 - Figured out what I was doing wrong with translation configuration
 - Added Japanese translation by @ryotai-trpg (#5)

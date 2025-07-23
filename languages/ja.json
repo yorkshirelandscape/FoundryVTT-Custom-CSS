@@ -2,7 +2,6 @@
     "CCSS": {
         "settings": {
             "CustomCss":"Custom CSS",
-            "CustomCssHint": "CSSを必ず検証してください。",
             "settingsMenu": {
                 "name": "Custom CSS ルール",
                 "label": "Custom CSS ルール",

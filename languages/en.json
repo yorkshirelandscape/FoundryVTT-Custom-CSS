@@ -2,7 +2,6 @@
     "CCSS": {
         "settings": {
             "CustomCss":"Custom CSS",
-            "CustomCssHint": "Make sure you validate your CSS",
             "settingsMenu": {
                 "name": "Custom CSS Rules",
                 "label": "Custom CSS Rules",
