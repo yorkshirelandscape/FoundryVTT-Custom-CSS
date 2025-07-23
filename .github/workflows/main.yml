@@ -16,8 +16,9 @@ jobs:
     - name: include CHANGELOG in README
       run: |
         changelog=$(cat CHANGELOG.md)
-        sed -i "s|{CHANGELOG}|$changelog|g" README.md
-    
+        sed -i "s|{CHANGELOG}|{{$changelog}}|g" README.md
+
+
     # get part of the tag after the `v`
     - name: Extract tag version number
       id: get_version
