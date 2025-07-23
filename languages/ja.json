@@ -1,0 +1,29 @@
+{
+    "CCSS": {
+        "settings": {
+            "CustomCss":"Custom CSS",
+            "CustomCssHint": "CSSを必ず検証してください。",
+            "settingsMenu": {
+                "name": "Custom CSS ルール",
+                "label": "Custom CSS ルール",
+                "title": "Custom CSS ルール"
+            },
+            "transition": {
+                "name": "トランジション",
+                "hint": "スタイルの変更を保存した際にアニメーションさせます。"
+            }
+        },
+        "migration": {
+            "startMessage": "Custom CSS データを移行中...",
+            "endMessage": "...Custom CSS 移行完了。",
+            "uiMessage": "Custom CSS データが移行されました。モジュールの設定をご確認ください。"
+        },
+        "stylesheet": {
+            "globalStyles": "グローバルスタイル",
+            "globalStylesHint": "これらのスタイルは、すべてのユーザーに適用されます。",
+            "userStyles": "ユーザースタイル",
+            "userStylesHint": "これらのスタイルは、あなただけに適用されます。",
+            "btnSave": "保存"
+        }
+    }
+}
