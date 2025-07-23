@@ -20,7 +20,7 @@ jobs:
     - name: Substitute CHANGELOG in README
       id: sub_changelog
       run: |
-        sed -i "s|{CHANGELOG}|${{ env.CHANGELOG }}|g" README.md
+        sed -i 's¡{CHANGELOG}¡${{ env.CHANGELOG }}¡g' README.md
 
     # get part of the tag after the `v`
     - name: Extract tag version number
