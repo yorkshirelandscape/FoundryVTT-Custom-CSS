@@ -13,11 +13,14 @@ jobs:
       with:
         submodules: 'recursive'
         
-    - name: include CHANGELOG in README
+    - name: Grab contents of CHANGELOG.md
+      id: get_changelog
       run: |
-        changelog=$(cat CHANGELOG.md)
-        sed -i "s|{CHANGELOG}|{{$changelog}}|g" README.md
-
+        echo "CHANGELOG=$(cat CHANGELOG.md)" >> $GITHUB_ENV
+    - name: Substitute CHANGELOG in README
+      id: sub_changelog
+      run: |
+        sed -i "s|{CHANGELOG}|${{ env.CHANGELOG }}|g" README.md
 
     # get part of the tag after the `v`
     - name: Extract tag version number
