@@ -1,4 +1,4 @@
-import { SettingsForm } from './settingsForm.js';
+import { CcssEditor } from './ccssEditor.js';
 
 export const modName = 'Custom Css';
 const mod = 'custom-css';
@@ -118,7 +118,7 @@ export class Settings {
             name: game.i18n.localize("CCSS.settings.settingsMenu.name"),
             label: game.i18n.localize("CCSS.settings.settingsMenu.label"),
             icon: "fas fa-wrench",
-            type: SettingsForm,
+            type: CcssEditor,
             restricted: false
         });
 

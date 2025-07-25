@@ -2,11 +2,11 @@
     "id": "custom-css",
     "title": "Custom CSS",
     "description": "Add custom CSS to your world",
-    "version": "2.3.4",
+    "version": "2.3.5",
     "compatibility": {
-        "minimum": 10,
-        "verified": 12,
-        "maximum": 12
+        "minimum": 13,
+        "verified": 13,
+        "maximum": 13
     },
     "authors": [
 		{
@@ -33,15 +33,6 @@
     "styles": [
         "./custom-css.css"
     ],
-    "relationships": {
-        "dependencies": [
-			    {
-			        "name": "_CodeMirror",
-			        "type": "module",
-			        "manifest": "https://raw.githubusercontent.com/League-of-Foundry-Developers/codemirror-lib/master/module.json"	
-			    }
-			]
-    },
     "languages": [
         {
             "lang": "en",

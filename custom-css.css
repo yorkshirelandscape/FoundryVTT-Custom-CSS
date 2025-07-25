@@ -1,6 +1,36 @@
-.customCssSettings {
-	width: 100%;
-	height: 100%;
+/* Maple Mono NF font faces */
+@font-face {
+    font-family: 'Maple Mono NF';
+    src: url('./fonts/MapleMono-NF-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Maple Mono NF';
+    src: url('./fonts/MapleMono-NF-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Maple Mono NF';
+    src: url('./fonts/MapleMono-NF-Italic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Maple Mono NF';
+    src: url('./fonts/MapleMono-NF-BoldItalic.woff2') format('woff2');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+.ccssEditor {
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     
@@ -17,14 +47,9 @@
         width: 100%;
         min-height: 10px;
     }
-    
-    .CodeMirror {
-        height: 100%;
-        width: 100%;
-    }
 
     textarea {
-        font-family: 'Courier New', Courier, monospace;
+        font-family: 'Maple Mono NF', monospace;
         height: 100%;
         width: 100%;
     }
