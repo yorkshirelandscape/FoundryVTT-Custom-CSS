@@ -20,7 +20,20 @@ export class Settings {
      */
     static getStylesheet(scope) {
         if (scope === "world") {
-            return game.settings.get(mod, "worldStylesheet");
+            const newSheet = game.settings.get(mod, "worldStylesheet");
+            if (newSheet === "/* Custom CSS */" || newSheet === "" ) {
+                try {
+                    const oldSheet = game.settings.get(mod, "stylesheet");
+                    if (oldSheet !== "/* Custom CSS */" && oldSheet !== "") {
+                        this.setStylesheet(oldSheet, "world");
+                        return oldSheet;
+                    }
+                } catch (error) {
+                    return newSheet; // If the old setting doesn't exist, return the new default
+                }
+            } else {
+                return newSheet;
+            }
         } else if (scope === "user") {
             return game.settings.get(mod, "userStylesheet");
         }
@@ -37,7 +50,7 @@ export class Settings {
      * @memberof Settings
      */
     static async setStylesheet(css, scope) {
-        const cssOrDefault = (css == null || css == undefined || css == "") ? "/** Custom CSS **/" : css;
+        const cssOrDefault = (css == null || css == undefined || css == "") ? "/* Custom CSS */" : css;
         return game.settings.set(mod, `${scope}Stylesheet`, cssOrDefault);
     }
 
@@ -78,6 +91,13 @@ export class Settings {
      * @memberof Settings
      */
     static registerSettings() {
+        game.settings.register(mod, "stylesheet", {
+            scope: "world",
+            config: false,
+            type: String,
+            default: "/* Custom CSS */"
+        });
+
         game.settings.register(mod, "worldStylesheet", {
             scope: "world",
             config: false,
