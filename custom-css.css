@@ -1,41 +1,45 @@
 /* Maple Mono NF font faces */
 @font-face {
-    font-family: 'Maple Mono NF';
-    src: url('./fonts/MapleMono-NF-Regular.woff2') format('woff2');
+    font-family: "Maple Mono NF";
+    src: local("Maple Mono NF"), 
+        url("./fonts/Maple-Mono-NF-Regular.woff2") format("woff2"),
+        url("./fonts/Maple-Mono-NF-Regular.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
-    font-family: 'Maple Mono NF';
-    src: url('./fonts/MapleMono-NF-Bold.woff2') format('woff2');
+    font-family: "Maple Mono NF";
+    src: local("Maple Mono NF Bold"), 
+        url("./fonts/Maple-Mono-NF-Bold.woff2") format("woff2"),
+        url("./fonts/Maple-Mono-NF-Bold.ttf") format("truetype");
     font-weight: bold;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
-    font-family: 'Maple Mono NF';
-    src: url('./fonts/MapleMono-NF-Italic.woff2') format('woff2');
+    font-family: "Maple Mono NF";
+    src: local("Maple Mono NF Italic"), 
+        url("./fonts/Maple-Mono-NF-Italic.woff2") format("woff2"),
+        url("./fonts/Maple-Mono-NF-Italic.ttf") format("truetype");
     font-weight: normal;
     font-style: italic;
     font-display: swap;
 }
 @font-face {
-    font-family: 'Maple Mono NF';
-    src: url('./fonts/MapleMono-NF-BoldItalic.woff2') format('woff2');
+    font-family: "Maple Mono NF";
+    src: local("Maple Mono NF Bold Italic"), 
+        url("./fonts/Maple-Mono-NF-BoldItalic.woff2") format("woff2"),
+        url("./fonts/Maple-Mono-NF-BoldItalic.ttf") format("truetype");
     font-weight: bold;
     font-style: italic;
     font-display: swap;
 }
 
-.ccssEditor {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    
+.ccss-editor {
+
     h2 {
-        margin: .2em 0 0 0;
+        margin: .2rem 0 0 0;
         font-size: 1.25em;
     }
 
@@ -43,19 +47,37 @@
         flex-basis: unset;
         padding: 0;
     }
-    .stylesheet-editor {
-        width: 100%;
-        min-height: 10px;
-    }
 
-    textarea {
-        font-family: 'Maple Mono NF', monospace;
+    #ccss-super-container {
+        display: flex;
+        flex-direction: column;
         height: 100%;
         width: 100%;
     }
 
-    button {
-        margin-top: .5em;
+    .stylesheet-container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+    }
+
+    .stylesheet-editor {
+        width: 100%;
+        min-height: 10px;
+        
+        * {
+            font-family: 'Maple Mono NF', monospace;
+        }
+    }
+
+    code-mirror {
+        height: 100%;
+        width: 100%;
+
+        * {
+            font-family: 'Maple Mono NF', monospace;
+        }
     }
 
     #ccss-top {
@@ -65,10 +87,10 @@
     }
 
     #ccss-bottom {
-        height: 75%;
+        height: 100%;
     }
 
-    #ccss-sep {
+    #ccss-separator {
         cursor: row-resize;
         width: 100%;
         height: 10px;

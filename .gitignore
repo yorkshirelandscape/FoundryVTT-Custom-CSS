@@ -8,3 +8,8 @@ codemirror/mode/css/*
 !codemirror/mode/css
 !codemirror/mode/css/css.js
 ccssEdtitor.bak
+
+node_modules
+node_modules/*
+
+package-lock.json

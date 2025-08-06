@@ -1,20 +1,23 @@
-{{#if isGM}}
-    <h2>{{localize "CCSS.stylesheet.globalStyles"}}</h2>
-    <p class="notes">{{localize "CCSS.stylesheet.globalStylesHint"}}</p>
-    
-    <section class="stylesheet-editor" id="ccss-top">
-        <code-mirror id="globalStylesheet" class="userStylesheet" name="stylesheet" language="css" aria-label="{{localize CCSS.stylesheet.globalStyles}}">
-            {{~stylesheet~}}
-        </code-mirror>
-    </section>
-
-{{/if}}
-<h2>{{localize "CCSS.stylesheet.userStyles"}}</h2> 
-<div id="ccss-sep"></div>
-<p class="notes">{{localize "CCSS.stylesheet.userStylesHint"}}</p> 
-
-<section class="stylesheet-editor" id="ccss-bottom">
-    <code-mirror id="userStylesheet" class="userStylesheet" name="userStylesheet" language="css" aria-label="{{localize CCSS.stylesheet.userStyles}}">
-        {{~stylesheet~}}
-    </code-mirror>
-</section>
+<div id="ccss-super-container">
+    {{#if isGM}}
+        <div id="ccss-world-stylesheet" class="stylesheet-container">    
+            <h2>{{localize "CCSS.stylesheet.worldStyles"}}</h2>
+            <p class="hint">{{localize "CCSS.stylesheet.worldStylesHint"}}</p>
+            <section class="stylesheet-editor" id="ccss-top">
+                <code-mirror id="worldStylesheet" class="ccssStylesheet" name="worldStylesheet" aria-label="{{localize CCSS.stylesheet.worldStyles}}">
+                    {{~worldStylesheet~}}
+                </code-mirror>
+            </section>
+        </div>
+        <div id="ccss-separator"></div>
+    {{/if}}
+        <div id="ccss-user-stylesheet" class="stylesheet-container">
+            <h2>{{localize "CCSS.stylesheet.userStyles"}}</h2>
+            <p class="hint">{{localize "CCSS.stylesheet.userStylesHint"}}</p>
+            <section class="stylesheet-editor" id="ccss-bottom">
+                <code-mirror id="userStylesheet" class="ccssStylesheet" name="userStylesheet" aria-label="{{localize CCSS.stylesheet.userStyles}}">
+                    {{~userStylesheet~}}
+                </code-mirror>
+            </section>
+        </div>
+</div>

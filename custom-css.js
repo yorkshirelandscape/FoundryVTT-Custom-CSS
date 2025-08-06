@@ -59,7 +59,6 @@ class CustomCSS {
      */
     async setup() {
         Settings.registerSettings();
-        if (Settings.hasOldSettings) await Settings.migrate();
 
         this.openSocket();
 
@@ -95,7 +94,7 @@ class CustomCSS {
             document.querySelector("head").appendChild(el);
         }
 
-        this.css = Settings.getStylesheet();
+        this.css = Settings.getStylesheet("world") + "\n\n" + Settings.getStylesheet("user");
 
         if (transition) {
             await new Promise(resolve => setTimeout(resolve, 750));
