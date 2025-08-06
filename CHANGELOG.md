@@ -1,9 +1,14 @@
 # Custom CSS Changelog
 
-## Roadmap *V13 only*
-- Support Foundry V13
-  - Remove redundant CodeMirror dependency
+## Roadmap
+- Patch CodeMirror to include CSS syntax highlighting
 - Possible support for simple UI theming
+
+## [2.3.5](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/tree/2.3.5)<sup>[&Delta;](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/compare/2.3.4...2.3.5)</sup> &mdash;&mdash; *2025-08-06*
+
+- Updated to AppV2
+- Removed some ancient unusable migration code
+- Some refactoring here and there
 
 ## [2.3.4](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/tree/2.3.4)<sup>[&Delta;](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/compare/2.3.3...2.3.4)</sup> &mdash;&mdash; *2025-07-23* &mdash;&mdash; Final V12 Release
 
