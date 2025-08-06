@@ -13,13 +13,15 @@ When adding a lot of modules, every now and then they don't quite agree with eac
 Well, perhaps you've tried all those new-fangled deluxe content modules and developed a taste for the finder things in Foundry Journals? Now's your change to make your own bespoke journal style! The possibilities are limited only by your imagination. Okay... and your knowledge of CSS... but what better way to learn?
 
 
-## Roadmap *V13 only*
-- Support Foundry V13
-  - Remove redundant CodeMirror dependency
+## Roadmap
+- Patch CodeMirror to include CSS syntax highlighting
 - Possible support for simple UI theming
 
+## [2.3.5](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/tree/2.3.5)<sup>[&Delta;](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/compare/2.3.4...2.3.5)</sup> &mdash;&mdash; *2025-08-06*
 
-## Changelog
+- Updated to AppV2
+- Removed some ancient unusable migration code
+- Some refactoring here and there
 
 ## [2.3.4](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/tree/2.3.4)<sup>[&Delta;](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/compare/2.3.3...2.3.4)</sup> &mdash;&mdash; *2025-07-23* &mdash;&mdash; Final V12 Release
 
@@ -30,8 +32,3 @@ Well, perhaps you've tried all those new-fangled deluxe content modules and deve
 
 - Figured out what I was doing wrong with translation configuration
 - Added Japanese translation by @ryotai-trpg (#5)
-
-## [2.3.2](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/tree/2.3.2)<sup>[&Delta;](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/compare/2.3.1...2.3.2)</sup> &mdash;&mdash; *Not Released*
-
-- Added Brazilian Portuguese translation by @Kharmans (#2)
-- Added support for stylesheet string localization
