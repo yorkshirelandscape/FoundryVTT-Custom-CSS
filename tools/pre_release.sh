@@ -13,9 +13,9 @@ SET_TAG=FALSE
 TAG=$(git describe --tags --abbrev=0)
 
 # Generate the next release tag possibilities based on the current tag
-RLS_PATCH=$(echo $TAG | awk -F. -v OFS=. '{$NF++;print}')
-RLS_MINOR=$(echo $TAG | awk -F. -v OFS=. '{$(NF-1)++;$NF=0;print}')
-RLS_MAJOR=$(echo $TAG | awk -F. -v OFS=. '{$1++;$2=0;$3=0;print}')
+RLS_PATCH=$(echo $TAG | awk -F. '{printf "%d.%d.%d", $1, $2, $3+1}')
+RLS_MINOR=$(echo $TAG | awk -F. '{printf "%d.%d.%d", $1, $2+1, 0}')
+RLS_MAJOR=$(echo $TAG | awk -F. '{printf "%d.%d.%d", $1+1, 0, 0}')
 
 # search CHANGELOG.md and module.json for each RLS version
 if grep -q "## \[$RLS_PATCH\]" CHANGELOG.md || grep -q "\"version\": \"$RLS_PATCH\"" module.json; then

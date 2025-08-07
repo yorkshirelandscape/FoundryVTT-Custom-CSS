@@ -17,11 +17,12 @@ Well, perhaps you've tried all those new-fangled deluxe content modules and deve
 - Patch CodeMirror to include CSS syntax highlighting
 - Possible support for simple UI theming
 
-## [2.4.0](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/tree/2.4.0)<sup>[&Delta;](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/compare/2.3.4...2.4.0)</sup> &mdash;&mdash; *2025-08-06*
+## [2.4.2](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/tree/2.4.2)<sup>[&Delta;](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/compare/2.3.4...2.4.2)</sup> &mdash;&mdash; *2025-08-06*
 
 - Updated to AppV2
 - Removed some ancient unusable migration code
 - Some refactoring here and there
+- Using a clean version number now that things are working properly.
 
 ## [2.3.4](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/tree/2.3.4)<sup>[&Delta;](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/compare/2.3.3...2.3.4)</sup> &mdash;&mdash; *2025-07-23* &mdash;&mdash; Final V12 Release
 

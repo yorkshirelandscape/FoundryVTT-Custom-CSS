@@ -4,6 +4,12 @@
 - Patch CodeMirror to include CSS syntax highlighting
 - Possible support for simple UI theming
 
+
+## [2.4.2](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/tree/2.4.2)<sup>[&Delta;](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/compare/2.4.0...2.4.2)</sup> &mdash;&mdash; *2025-08-06*
+- Using a clean version number now that things are working properly.
+
+## 2.4.1 SKIPPED
+  
 ## [2.4.0](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/tree/2.4.0)<sup>[&Delta;](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/compare/2.3.4...2.4.0)</sup> &mdash;&mdash; *2025-08-06*
 
 - Updated to AppV2
