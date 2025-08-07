@@ -2,7 +2,7 @@
     "id": "custom-css",
     "title": "Custom CSS",
     "description": "Add custom CSS to your world",
-    "version": "2.4.2",
+    "version": "2.4.3",
     "compatibility": {
         "minimum": 13,
         "verified": 13,

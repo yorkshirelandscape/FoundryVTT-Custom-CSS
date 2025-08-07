@@ -17,6 +17,9 @@ Well, perhaps you've tried all those new-fangled deluxe content modules and deve
 - Patch CodeMirror to include CSS syntax highlighting
 - Possible support for simple UI theming
 
+## [2.4.3](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/tree/2.4.3)<sup>[&Delta;](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/compare/2.4.2...2.4.3)</sup> &mdash;&mdash; *2025-08-06*
+- Small visual tweak I'd missed in the stylesheet editor.
+
 ## [2.4.2](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/tree/2.4.2)<sup>[&Delta;](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/compare/2.3.4...2.4.2)</sup> &mdash;&mdash; *2025-08-06*
 
 - Updated to AppV2
@@ -28,8 +31,3 @@ Well, perhaps you've tried all those new-fangled deluxe content modules and deve
 
 - Just some dev ops stuff. Nothing to write home about.
 - Also removed an unused localization string.
-
-## [2.3.3](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/tree/2.3.3)<sup>[&Delta;](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/compare/2.3.2...2.3.3)</sup> &mdash;&mdash; *2025-07-23*
-
-- Figured out what I was doing wrong with translation configuration
-- Added Japanese translation by @ryotai-trpg (#5)
