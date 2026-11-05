@@ -85,6 +85,22 @@ export class Settings {
     }
 
     /**
+     * The World pane's share of the editor's height, remembered per client.
+     *
+     * @readonly
+     * @static
+     * @memberof Settings
+     */
+    static get split() {
+        return game.settings.get(mod, "split");
+    }
+
+    /** @param {number} split - The World pane's share to remember */
+    static async setSplit(split) {
+        return game.settings.set(mod, "split", split);
+    }
+
+    /**
      * Registers all of the necessary game settings for the module
      *
      * @static
@@ -110,6 +126,13 @@ export class Settings {
             config: false,
             type: String,
             default: "/* Custom CSS */"
+        });
+
+        game.settings.register(mod, "split", {
+            scope: "client",
+            config: false,
+            type: Number,
+            default: 0.5
         });
 
         game.settings.registerMenu(mod, 'settingsMenu', {

@@ -1,21 +1,21 @@
-<div id="ccss-super-container">
+<div id="ccss-super-container"{{#if isGM}} class="ccss-split"{{/if}}>
     {{#if isGM}}
         <div id="ccss-world-stylesheet" class="stylesheet-container">    
             <h2>{{localize "CCSS.stylesheet.worldStyles"}}</h2>
             <p class="hint">{{localize "CCSS.stylesheet.worldStylesHint"}}</p>
             <section class="stylesheet-editor" id="ccss-top">
-                <code-mirror id="worldStylesheet" class="ccssStylesheet" name="worldStylesheet" aria-label="{{localize CCSS.stylesheet.worldStyles}}">
+                <code-mirror id="worldStylesheet" class="ccssStylesheet" name="worldStylesheet" aria-label="{{localize "CCSS.stylesheet.worldStyles"}}">
                     {{~worldStylesheet~}}
                 </code-mirror>
             </section>
         </div>
-        <div id="ccss-separator"></div>
+        <div id="ccss-separator" role="separator" aria-orientation="horizontal" aria-valuemin="10" aria-valuemax="90" tabindex="0" aria-label="{{localize "CCSS.stylesheet.resize"}}"></div>
     {{/if}}
         <div id="ccss-user-stylesheet" class="stylesheet-container">
             <h2>{{localize "CCSS.stylesheet.userStyles"}}</h2>
             <p class="hint">{{localize "CCSS.stylesheet.userStylesHint"}}</p>
             <section class="stylesheet-editor" id="ccss-bottom">
-                <code-mirror id="userStylesheet" class="ccssStylesheet" name="userStylesheet" aria-label="{{localize CCSS.stylesheet.userStyles}}">
+                <code-mirror id="userStylesheet" class="ccssStylesheet" name="userStylesheet" aria-label="{{localize "CCSS.stylesheet.userStyles"}}">
                     {{~userStylesheet~}}
                 </code-mirror>
             </section>

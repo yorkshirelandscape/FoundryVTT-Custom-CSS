@@ -19,7 +19,7 @@ export function clampSplit(split, min = 0.1) {
 
 /**
  * Make a separator resize the panes on either side of it: drag, arrow keys, double-click to reset.
- * The split is written to `--ccss-split` on the container, which its grid rows read.
+ * The split is written to `--ccss-top` / `--ccss-bottom` (fr values) on the container, which its grid rows read.
  *
  * @param {HTMLElement} container - Grid container holding the two panes and the separator
  * @param {HTMLElement} separator - The handle between the panes
@@ -30,7 +30,8 @@ export function clampSplit(split, min = 0.1) {
 export function makeSplitter(container, separator, { split, onChange = () => {} }) {
     const set = value => {
         split = clampSplit(value);
-        container.style.setProperty("--ccss-split", String(split));
+        container.style.setProperty("--ccss-top", `${split}fr`);
+        container.style.setProperty("--ccss-bottom", `${1 - split}fr`);
         separator.setAttribute("aria-valuenow", String(Math.round(split * 100)));
     };
     set(split);

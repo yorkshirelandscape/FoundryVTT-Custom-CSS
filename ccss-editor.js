@@ -1,5 +1,6 @@
 
 import { Settings } from './settings.js';
+import { makeSplitter } from './splitter.js';
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 // const { HTMLCodeMirrorElement } = foundry.applications.elements;
@@ -93,82 +94,37 @@ export class CcssEditor extends HandlebarsApplicationMixin(ApplicationV2) {
     }
 
     /**
-     * Handles editor resizing.
-     * 
-     * @param {element} element - The drag handle element.
-     * @param {string} direction - The direction of the drag handle.
-     * @memberof CcssEditor
+     * Size the window once, to fit the viewport, rather than on every render.
+     *
+     * @param {object} [options] - Application options
      */
-    dragElement(element, direction) {
-        var md;
-        const first = document.getElementById("ccss-world-stylesheet");
-        const second = document.getElementById("ccss-user-stylesheet");
-        const splitter = document.getElementById("ccss-super-container");
-    
-        element.onmousedown = onMouseDown;
-    
-        function onMouseDown(e) {
-            md = {
-                e,
-                offsetLeft: element.offsetLeft,
-                offsetTop: element.offsetTop,
-                offsetBottom: element.offsetBottom,
-                firstWidth: first.offsetWidth,
-                secondWidth: second.offsetWidth,
-                firstHeight: first.offsetHeight,
-                secondHeight: (splitter.offsetHeight - first.offsetHeight)
-            };
-            document.onmousemove = onMouseMove;
-    
-            document.onmouseup = () => {
-                document.onmousemove = document.onmouseup = null;
-            }
-        }
-    
-        function onMouseMove(e) {
-    
-            var delta = {
-                x: e.clientX - md.e.x,
-                y: e.clientY - md.e.y
-            };
-    
-            if (direction === "H") {
-                delta.x = Math.min(Math.max(delta.x, -md.firstWidth),
-                    md.secondWidth);
-                element.style.left = md.offsetLeft + delta.x + "px";
-                first.style.width = (md.firstWidth + delta.x) + "px";
-                second.style.width = (md.secondWidth - delta.x) + "px";
-            }
-    
-            if (direction === "V") {
-                delta.y = Math.min(Math.max(delta.y, -md.firstHeight), md.secondHeight);
-                element.style.top = md.offsetTop + delta.y + "px";
-                first.style.height = (md.firstHeight + delta.y) + "px";
-                second.style.height = (md.secondHeight - delta.y) + "px";
-            }
-        }
+    constructor(options = {}) {
+        const height = Math.min(game.user.isGM ? 900 : 500, window.innerHeight - 100);
+        super(foundry.utils.mergeObject({ position: { height } }, options));
     }
-     
+
     /**
-     * Set dynamic window height after rendering using the ApplicationV2 lifecycle hook.
-     * @param {object} context - The rendering context.
-     * @param {object} options - Render options.
+     * Track dirty state; the form element outlives re-renders, so this runs once.
+     */
+    _onFirstRender(context, options) {
+        super._onFirstRender(context, options);
+        const dirty = () => { this._dirty = true; };
+        this.element.addEventListener("input", dirty);
+        this.element.addEventListener("change", dirty);
+    }
+
+    /**
+     * Wire the World/User splitter; each render replaces the separator, so this runs every time.
      */
     _onRender(context, options) {
-        this.setPosition({
-            height: game.user.isGM ? 900 : 500
+        super._onRender(context, options);
+        const container = this.element.querySelector("#ccss-super-container");
+        const separator = this.element.querySelector("#ccss-separator");
+        if (!container || !separator) return;
+        makeSplitter(container, separator, {
+            split: Settings.split,
+            onChange: split => Settings.setSplit(split),
         });
-
-        if (game.user.isGM) {
-            this.dragElement(document.getElementById("ccss-separator"), "V");
-        }
-
-        // Track dirty state on input/change
-        const form = this.element;
-        if (form) {
-            form.addEventListener('input', () => { this._dirty = true; });
-            form.addEventListener('change', () => { this._dirty = true; });
-        }
     }
 }
 

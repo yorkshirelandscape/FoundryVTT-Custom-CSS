@@ -25,7 +25,8 @@
             "worldStylesHint": "These styles apply to the entire world.",
             "userStyles": "User Styles",
             "userStylesHint": "These styles apply only to you.",
-            "btnSave": "Save"
+            "btnSave": "Save",
+            "resize": "Resize the World and User panes"
         }
     }
 }

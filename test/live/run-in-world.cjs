@@ -7,6 +7,12 @@ const cookies = fs.readFileSync(jar, 'utf8').split('\n')
   .map(l => l.replace(/^#HttpOnly_/, '')).filter(l => l && !l.startsWith('#'))
   .map(l => l.split('\t')).filter(f => f.length >= 7)
   .map(([domain, , path, secure, , name, value]) => ({ name, value, domain: domain.replace(/^\./, ''), path, secure: secure === 'TRUE' }));
+const listHbs = (dir, rel = '') => fs.readdirSync(require('path').join(dir, rel), { withFileTypes: true }).flatMap(e =>
+  e.isDirectory() ? (e.name.startsWith('.') || e.name === 'node_modules' ? [] : listHbs(dir, require('path').join(rel, e.name)))
+    : /\.(hbs|html)$/.test(e.name) && rel.startsWith('templates') ? [require('path').join(rel, e.name)] : []);
+const primeTemplates = (p, id, dir) => p.evaluate(files => {
+  for (const [path, html] of files) Handlebars.registerPartial(path, Handlebars.compile(html, { preventIndent: true }));
+}, listHbs(dir).map(f => [`modules/${id}/${f}`, fs.readFileSync(require('path').join(dir, f), 'utf8')]));
 (async () => {
   const b = await chromium.launch({ executablePath: process.env.CHROMIUM ?? '/usr/bin/chromium' });
   const ctx = await b.newContext({ viewport: { width: 1600, height: 1000 } });
@@ -27,6 +33,8 @@ const cookies = fs.readFileSync(jar, 'utf8').split('\n')
   p.on('console', m => { const t = m.text(); if (t.startsWith('CC|')) console.log(new Date().toTimeString().slice(0, 8), t.slice(3)); else if (/custom-css|libWrapper/i.test(t)) logs.push(m.type() + ': ' + t.slice(0, 300)); });
   await p.goto(url + '/game', { waitUntil: 'domcontentloaded' });
   await p.waitForFunction(() => window.game?.ready, null, { timeout: 300000 });
+  // Templates arrive over the websocket, not HTTP, so seed Foundry's cache with the checkouts' copies
+  for (const [id, dir] of Object.entries(dirs)) await primeTemplates(p, id, dir);
   const out = await p.evaluate(`(async () => { ${fs.readFileSync(script, 'utf8')} })()`);
   console.log(JSON.stringify({ out, logs }, null, 1));
   if (shot) await p.screenshot({ path: shot });

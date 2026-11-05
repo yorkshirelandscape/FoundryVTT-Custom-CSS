@@ -48,32 +48,47 @@
         padding: 0;
     }
 
+    /* Panes fill the space above the footer, which stays put however long the CSS gets */
+    .window-content {
+        overflow: hidden;
+    }
+
     #ccss-super-container {
-        display: flex;
-        flex-direction: column;
-        height: 90%;
+        flex: 1;
+        min-height: 0;
         width: 100%;
+        display: grid;
+        grid-template-rows: minmax(0, 1fr);
+    }
+
+    #ccss-super-container.ccss-split {
+        grid-template-rows: minmax(0, var(--ccss-top, 1fr)) auto minmax(0, var(--ccss-bottom, 1fr));
+    }
+
+    .form-footer {
+        flex: none;
     }
 
     .stylesheet-container {
         display: flex;
         flex-direction: column;
-        height: 75%;
-        min-height: 5%;
-        width: 100%;
+        min-height: 0;
+        overflow: hidden;
     }
 
     .stylesheet-editor {
-        width: 100%;
-        min-height: 10px;
-        
-        * {
-            font-family: 'Maple Mono NF', monospace;
-        }
+        flex: 1;
+        min-height: 0;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
     }
 
     code-mirror {
-        height: 100%;
+        flex: 1;
+        min-height: 0;
+        height: auto;
         width: 100%;
 
         * {
@@ -81,34 +96,36 @@
         }
     }
 
-    #ccss-top {
-        padding: 0;
-        margin: 0;
-        height: 100%;
-    }
-
-    #ccss-bottom {
-        height: 75%;
-    }
-
     #ccss-separator {
+        position: relative;
+        height: 12px;
         cursor: row-resize;
-        width: 100%;
-        height: 10px;
-        -moz-user-select: none;
-        -ms-user-select: none;
+        touch-action: none;
         user-select: none;
-        background-color: var(--color-pf-primary);
-        mask-image: linear-gradient( to right, 
-          transparent, 
-          transparent calc( 50% - 25px), 
-          black calc( 50% - 25px),  
-          black calc( 50% + 25px), 
-          transparent calc( 50% + 25px),
-          transparent );
-        mask-size: 100% 0.3rem;
-        mask-position: 0% 0%;
-        mask-repeat: no-repeat;
-        margin-bottom: -0.3rem;
+        border-radius: 4px;
+        outline-offset: -2px;
+
+        /* Grip */
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 4px calc(50% - 24px);
+            border-radius: 2px;
+            background: var(--color-border, currentColor);
+            opacity: 0.6;
+        }
+
+        &:hover::before,
+        &:focus-visible::before,
+        .ccss-dragging > &::before {
+            background: var(--color-warm-2, currentColor);
+            opacity: 1;
+        }
+    }
+
+    /* Keep a drag from selecting editor text */
+    .ccss-dragging {
+        cursor: row-resize;
+        user-select: none;
     }
 }
