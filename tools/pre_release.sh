@@ -77,7 +77,7 @@ LATEST_CHANGELOG=""
 # Add the CHANGELOG entry header if it doesn't exist
 if ! grep -q "## \[$RELEASE_TAG\]" CHANGELOG.md; then
     echo "Adding CHANGELOG entry for $RELEASE_TAG"
-    echo -e "\n\n## [$RELEASE_TAG](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/tree/$RELEASE_TAG)<sup>[&Delta;](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/compare/$(git describe --tags --abbrev=0)...$RELEASE_TAG)</sup> &mdash;&mdash; *$(date +%Y-%m-%d)*\n- <Changes>" >> CHANGELOG.md
+    echo -e "\n\n## [$RELEASE_TAG](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/tree/$RELEASE_TAG)<sup>[Δ](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/compare/$(git describe --tags --abbrev=0)...$RELEASE_TAG)</sup> —— *$(date +%Y-%m-%d)*\n- <Changes>" >> CHANGELOG.md
     CHANGELOG=FALSE
 else
     echo "CHANGELOG entry for $RELEASE_TAG already exists"
