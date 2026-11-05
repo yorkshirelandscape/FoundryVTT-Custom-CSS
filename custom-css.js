@@ -115,3 +115,4 @@ class CustomCSS {
 }
 
 Hooks.once('init', CustomCSS.onInit);
+Hooks.on('renderSettingsConfig', (app, html) => Settings.decorateSettingsConfig(app, html));

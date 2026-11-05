@@ -142,75 +142,84 @@
         cursor: row-resize;
         user-select: none;
     }
+}
 
-    /* Font picker: names in their own fonts either side of a switch */
-    .ccss-font-picker {
-        flex: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.6rem;
-        font-size: 0.95em;
+/* Font picker: names in their own fonts either side of a switch */
+.ccss-font-picker {
+    --ccss-maple: "CCSS Maple Mono", monospace;
+    --ccss-iosevka: "CCSS Iosevka", monospace;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.6rem;
+    font-size: 0.95em;
+}
+
+.ccss-font-name {
+    opacity: 0.55;
+    transition: opacity 0.15s;
+
+    &:hover,
+    &:focus-visible,
+    &.active {
+        opacity: 1;
     }
+}
 
-    .ccss-font-name {
-        opacity: 0.55;
-        transition: opacity 0.15s;
+.ccss-font-maple {
+    font-family: var(--ccss-maple);
+}
 
-        &:hover,
-        &:focus-visible,
-        &.active {
-            opacity: 1;
-        }
-    }
+.ccss-font-iosevka {
+    font-family: var(--ccss-iosevka);
+}
 
-    .ccss-font-maple {
-        font-family: var(--ccss-maple);
-    }
+.ccss-font-switch {
+    position: relative;
+    display: inline-flex;
+    cursor: pointer;
 
-    .ccss-font-iosevka {
-        font-family: var(--ccss-iosevka);
-    }
-
-    .ccss-font-switch {
-        position: relative;
-        display: inline-flex;
-        cursor: pointer;
-
-        input {
-            position: absolute;
-            inset: 0;
-            margin: 0;
-            opacity: 0;
-            cursor: pointer;
-        }
-    }
-
-    .ccss-font-track {
-        width: 2.4rem;
-        height: 1.2rem;
-        border-radius: 0.6rem;
-        background: var(--color-border, #666);
-        position: relative;
-    }
-
-    .ccss-font-thumb {
+    input {
         position: absolute;
-        top: 0.15rem;
-        left: 0.15rem;
-        width: 0.9rem;
-        height: 0.9rem;
-        border-radius: 50%;
-        background: var(--color-warm-2, #c9593f);
-        transition: transform 0.15s;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        opacity: 0;
+        cursor: pointer;
     }
+}
 
-    .ccss-font-switch input:checked + .ccss-font-track .ccss-font-thumb {
-        transform: translateX(1.2rem);
-    }
+.ccss-font-track {
+    width: 2.4rem;
+    height: 1.2rem;
+    border-radius: 0.6rem;
+    background: var(--color-border, #666);
+    position: relative;
+}
 
-    .ccss-font-switch input:focus-visible + .ccss-font-track {
-        outline: 2px solid var(--color-warm-2, currentColor);
-        outline-offset: 2px;
-    }
+.ccss-font-thumb {
+    position: absolute;
+    top: 0.15rem;
+    left: 0.15rem;
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 50%;
+    background: var(--color-warm-2, #c9593f);
+    transition: transform 0.15s;
+}
+
+.ccss-font-switch input:checked + .ccss-font-track .ccss-font-thumb {
+    transform: translateX(1.2rem);
+}
+
+.ccss-font-switch input:focus-visible + .ccss-font-track {
+    outline: 2px solid var(--color-warm-2, currentColor);
+    outline-offset: 2px;
+}
+
+/* The dropdown it replaces stays in the form, hidden, so Save Changes still stores the choice */
+select[data-ccss-picker] {
+    display: none !important;
 }

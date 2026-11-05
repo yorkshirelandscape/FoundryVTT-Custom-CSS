@@ -38,9 +38,6 @@ export class CcssEditor extends HandlebarsApplicationMixin(ApplicationV2) {
         stylesheet: {
             template: "modules/custom-css/templates/settings.hbs",
         },
-        font: {
-            template: "modules/custom-css/templates/font-picker.hbs",
-        },
         footer: {
             template: "templates/generic/form-footer.hbs",
         }
@@ -50,7 +47,6 @@ export class CcssEditor extends HandlebarsApplicationMixin(ApplicationV2) {
         super._configureRenderOptions(options);
         options.parts = [];
         options.parts.push("stylesheet");
-        options.parts.push("font");
         options.parts.push("footer");
     }
 
@@ -90,7 +86,6 @@ export class CcssEditor extends HandlebarsApplicationMixin(ApplicationV2) {
         context.isGM = game.user.isGM;
         context.worldStylesheet = Settings.getStylesheet("world");
         context.userStylesheet = Settings.getStylesheet("user");
-        context.iosevka = Settings.font === "iosevka";
         context.buttons = [
             { type: "submit", icon: "fas fa-check", label: "CCSS.settings.apply", name: "ccss-apply" },
             { type: "submit", icon: "fas fa-save", label: "CCSS.settings.save", name: "ccss-save" }
@@ -119,19 +114,12 @@ export class CcssEditor extends HandlebarsApplicationMixin(ApplicationV2) {
     }
 
     /**
-     * Switch the editor's font and the picker's state, without re-rendering the stylesheets.
+     * Switch the editor's font without re-rendering the stylesheets.
      *
      * @param {string} font - "maple" or "iosevka"
      */
     showFont(font) {
-        const el = this.element;
-        if (!el) return;
-        el.dataset.font = font;
-        const iosevka = font === "iosevka";
-        const box = el.querySelector(".ccss-font-switch input");
-        if (box) box.checked = iosevka;
-        el.querySelector(".ccss-font-maple")?.classList.toggle("active", !iosevka);
-        el.querySelector(".ccss-font-iosevka")?.classList.toggle("active", iosevka);
+        if (this.element) this.element.dataset.font = font;
     }
 
     /**
@@ -140,9 +128,6 @@ export class CcssEditor extends HandlebarsApplicationMixin(ApplicationV2) {
     _onRender(context, options) {
         super._onRender(context, options);
         this.showFont(Settings.font);
-        this.element.querySelector(".ccss-font-switch input")?.addEventListener("change", event => {
-            Settings.setFont(event.currentTarget.checked ? "iosevka" : "maple");
-        });
         const container = this.element.querySelector("#ccss-super-container");
         const separator = this.element.querySelector("#ccss-separator");
         if (!container || !separator) return;

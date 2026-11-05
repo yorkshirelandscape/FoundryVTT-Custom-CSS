@@ -106,9 +106,34 @@ export class Settings {
         return game.settings.get(mod, "font");
     }
 
-    /** @param {string} font - "maple" or "iosevka" */
-    static async setFont(font) {
-        return game.settings.set(mod, "font", font);
+    /**
+     * Swap the font setting's dropdown in Configure Settings for a switch between the two font names.
+     * The dropdown stays in the form (hidden), so Save Changes stores the choice as usual.
+     *
+     * @param {ApplicationV2} app - The SettingsConfig application
+     * @param {HTMLElement} html - Its rendered element
+     */
+    static async decorateSettingsConfig(app, html) {
+        const select = html.querySelector(`select[name="${mod}.font"]`);
+        if (!select || select.dataset.ccssPicker) return;
+        select.dataset.ccssPicker = "true";
+        const markup = await foundry.applications.handlebars.renderTemplate(
+            "modules/custom-css/templates/font-picker.hbs",
+            { iosevka: select.value === "iosevka" }
+        );
+        const picker = document.createRange().createContextualFragment(markup).firstElementChild;
+        const box = picker.querySelector("input");
+        const mark = () => {
+            picker.querySelector(".ccss-font-maple").classList.toggle("active", !box.checked);
+            picker.querySelector(".ccss-font-iosevka").classList.toggle("active", box.checked);
+        };
+        box.addEventListener("change", () => {
+            select.value = box.checked ? "iosevka" : "maple";
+            select.dispatchEvent(new Event("change", { bubbles: true }));
+            mark();
+        });
+        select.hidden = true;
+        select.after(picker);
     }
 
     /** @param {number} split - The World pane's share to remember */

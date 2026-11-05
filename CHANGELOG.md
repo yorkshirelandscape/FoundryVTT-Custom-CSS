@@ -10,7 +10,7 @@
 
 - Rebuilt the splitter between the World and User panes: smoother dragging, a visible handle, arrow keys (Shift for bigger steps), double-click to reset, and your split is remembered.
 - Apply and Save stay on-screen no matter how long your stylesheet gets (#12).
-- Choose your editor font: Maple Mono or Iosevka, with a switch at the bottom of the editor (also in Configure Settings). Both come with their coding ligatures.
+- Choose your editor font: Maple Mono or Iosevka, with a switch under Configure Settings → Editor Font. Both come with their coding ligatures.
 - Much smaller download: the bundled fonts went from about 12 MB to under 1 MB, and now include their licenses.
 - Brazilian Portuguese works again: the language code is back to `pt-BR`, thanks to @Kharmans (#11).
 
