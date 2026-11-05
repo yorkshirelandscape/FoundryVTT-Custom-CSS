@@ -10,7 +10,7 @@
                 "name": "Transition",
                 "hint": "Whether or not to animate the style changes when they are saved."
             },
-            "customCss":"Custom CSS",
+            "customCss": "Custom CSS",
             "save": "Save",
             "apply": "Apply",
             "unsavedChangesPrompt": "Save changes before closing?"
@@ -27,6 +27,12 @@
             "userStylesHint": "These styles apply only to you.",
             "btnSave": "Save",
             "resize": "Resize the World and User panes"
+        },
+        "font": {
+            "label": "Use Iosevka instead of Maple Mono",
+            "visit": "{font}: visit the font's website",
+            "settingName": "Editor Font",
+            "settingHint": "The coding font used in the stylesheet editor."
         }
     }
 }

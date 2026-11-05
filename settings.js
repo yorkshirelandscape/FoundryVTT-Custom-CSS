@@ -95,6 +95,22 @@ export class Settings {
         return game.settings.get(mod, "split");
     }
 
+    /**
+     * The editor's coding font: "maple" or "iosevka".
+     *
+     * @readonly
+     * @static
+     * @memberof Settings
+     */
+    static get font() {
+        return game.settings.get(mod, "font");
+    }
+
+    /** @param {string} font - "maple" or "iosevka" */
+    static async setFont(font) {
+        return game.settings.set(mod, "font", font);
+    }
+
     /** @param {number} split - The World pane's share to remember */
     static async setSplit(split) {
         return game.settings.set(mod, "split", split);
@@ -133,6 +149,21 @@ export class Settings {
             config: false,
             type: Number,
             default: 0.5
+        });
+
+        game.settings.register(mod, "font", {
+            name: game.i18n.localize("CCSS.font.settingName"),
+            hint: game.i18n.localize("CCSS.font.settingHint"),
+            scope: "client",
+            config: true,
+            type: String,
+            choices: { maple: "Maple Mono", iosevka: "Iosevka" },
+            default: "maple",
+            onChange: font => {
+                for (const app of foundry.applications.instances.values()) {
+                    if (app instanceof CcssEditor) app.showFont(font);
+                }
+            }
         });
 
         game.settings.registerMenu(mod, 'settingsMenu', {

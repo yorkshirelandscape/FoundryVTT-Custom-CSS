@@ -1,42 +1,55 @@
-/* Maple Mono NF font faces */
+/* Editor fonts (see fonts/README.md) */
 @font-face {
-    font-family: "Maple Mono NF";
-    src: local("Maple Mono NF"), 
-        url("./fonts/Maple-Mono-NF-Regular.woff2") format("woff2"),
-        url("./fonts/Maple-Mono-NF-Regular.ttf") format("truetype");
-    font-weight: normal;
+    font-family: "CCSS Maple Mono";
+    src: url("./fonts/maple-mono/MapleMono-VF.woff2") format("woff2");
+    font-weight: 100 800;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
-    font-family: "Maple Mono NF";
-    src: local("Maple Mono NF Bold"), 
-        url("./fonts/Maple-Mono-NF-Bold.woff2") format("woff2"),
-        url("./fonts/Maple-Mono-NF-Bold.ttf") format("truetype");
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: "Maple Mono NF";
-    src: local("Maple Mono NF Italic"), 
-        url("./fonts/Maple-Mono-NF-Italic.woff2") format("woff2"),
-        url("./fonts/Maple-Mono-NF-Italic.ttf") format("truetype");
-    font-weight: normal;
+    font-family: "CCSS Maple Mono";
+    src: url("./fonts/maple-mono/MapleMono-Italic-VF.woff2") format("woff2");
+    font-weight: 100 800;
     font-style: italic;
     font-display: swap;
 }
 @font-face {
-    font-family: "Maple Mono NF";
-    src: local("Maple Mono NF Bold Italic"), 
-        url("./fonts/Maple-Mono-NF-BoldItalic.woff2") format("woff2"),
-        url("./fonts/Maple-Mono-NF-BoldItalic.ttf") format("truetype");
-    font-weight: bold;
+    font-family: "CCSS Iosevka";
+    src: url("./fonts/iosevka/Iosevka-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "CCSS Iosevka";
+    src: url("./fonts/iosevka/Iosevka-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "CCSS Iosevka";
+    src: url("./fonts/iosevka/Iosevka-Italic.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: "CCSS Iosevka";
+    src: url("./fonts/iosevka/Iosevka-BoldItalic.woff2") format("woff2");
+    font-weight: 700;
     font-style: italic;
     font-display: swap;
 }
 
 .ccss-editor {
+    --ccss-maple: "CCSS Maple Mono", monospace;
+    --ccss-iosevka: "CCSS Iosevka", monospace;
+    --ccss-font: var(--ccss-maple);
+
+    &[data-font="iosevka"] {
+        --ccss-font: var(--ccss-iosevka);
+    }
 
     h2 {
         margin: .2rem 0 0 0;
@@ -92,7 +105,8 @@
         width: 100%;
 
         * {
-            font-family: 'Maple Mono NF', monospace;
+            font-family: var(--ccss-font);
+            font-variant-ligatures: contextual common-ligatures;
         }
     }
 
@@ -127,5 +141,76 @@
     .ccss-dragging {
         cursor: row-resize;
         user-select: none;
+    }
+
+    /* Font picker: names in their own fonts either side of a switch */
+    .ccss-font-picker {
+        flex: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        font-size: 0.95em;
+    }
+
+    .ccss-font-name {
+        opacity: 0.55;
+        transition: opacity 0.15s;
+
+        &:hover,
+        &:focus-visible,
+        &.active {
+            opacity: 1;
+        }
+    }
+
+    .ccss-font-maple {
+        font-family: var(--ccss-maple);
+    }
+
+    .ccss-font-iosevka {
+        font-family: var(--ccss-iosevka);
+    }
+
+    .ccss-font-switch {
+        position: relative;
+        display: inline-flex;
+        cursor: pointer;
+
+        input {
+            position: absolute;
+            inset: 0;
+            margin: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+    }
+
+    .ccss-font-track {
+        width: 2.4rem;
+        height: 1.2rem;
+        border-radius: 0.6rem;
+        background: var(--color-border, #666);
+        position: relative;
+    }
+
+    .ccss-font-thumb {
+        position: absolute;
+        top: 0.15rem;
+        left: 0.15rem;
+        width: 0.9rem;
+        height: 0.9rem;
+        border-radius: 50%;
+        background: var(--color-warm-2, #c9593f);
+        transition: transform 0.15s;
+    }
+
+    .ccss-font-switch input:checked + .ccss-font-track .ccss-font-thumb {
+        transform: translateX(1.2rem);
+    }
+
+    .ccss-font-switch input:focus-visible + .ccss-font-track {
+        outline: 2px solid var(--color-warm-2, currentColor);
+        outline-offset: 2px;
     }
 }

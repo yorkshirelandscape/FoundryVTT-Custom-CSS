@@ -1,0 +1,10 @@
+<div class="ccss-font-picker">
+    <a class="ccss-font-name ccss-font-maple{{#unless iosevka}} active{{/unless}}" href="https://font.subf.dev/" target="_blank" rel="noopener noreferrer"
+        data-tooltip="{{localize "CCSS.font.visit" font="Maple Mono"}}">Maple Mono</a>
+    <label class="ccss-font-switch">
+        <input type="checkbox" role="switch" {{checked iosevka}} aria-label="{{localize "CCSS.font.label"}}">
+        <span class="ccss-font-track"><span class="ccss-font-thumb"></span></span>
+    </label>
+    <a class="ccss-font-name ccss-font-iosevka{{#if iosevka}} active{{/if}}" href="https://typeof.net/Iosevka/" target="_blank" rel="noopener noreferrer"
+        data-tooltip="{{localize "CCSS.font.visit" font="Iosevka"}}">Iosevka</a>
+</div>
