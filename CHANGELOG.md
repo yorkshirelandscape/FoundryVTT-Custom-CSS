@@ -2,10 +2,15 @@
 
 ## Roadmap
 
-- Patch CodeMirror to include CSS syntax highlighting
-  - Maybe not necessary if Foundry can just add it
+- CSS syntax highlighting and autocompletion with a bundled CodeMirror 6 editor (3.0.0)
 - Snippet support for quick application of common tweaks
-  - Simple UI theming options
+- UI theming: built-in Foundry themes plus simple customization options
+
+## [2.4.5](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/tree/2.4.5)<sup>[&Delta;](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/compare/2.4.4...2.4.5)</sup> &mdash;&mdash; *2026-11-05*
+
+- Rebuilt the splitter between the World and User panes: smoother dragging, a visible handle, arrow keys (Shift for bigger steps), double-click to reset, and your split is remembered.
+- Apply and Save stay on-screen no matter how long your stylesheet gets (#12).
+- Brazilian Portuguese works again: the language code is back to `pt-BR`, thanks to @Kharmans (#11).
 
 ## [2.4.4](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/tree/2.4.4)<sup>[&Delta;](https://github.com/yorkshirelandscape/FoundryVTT-Custom-CSS/compare/2.4.3...2.4.4)</sup> &mdash;&mdash; *2026-05-01*
 
