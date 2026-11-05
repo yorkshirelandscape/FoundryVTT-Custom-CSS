@@ -3,9 +3,6 @@
 set -euo pipefail
 
 MAPLE=v7.9
-IOSEVKA=34.9.1
-# Latin, punctuation, arrows, math, box drawing: what stylesheets actually contain
-CHARS='U+0020-007E,U+00A0-017F,U+0192,U+02C6-02DC,U+2000-206F,U+20AC,U+2122,U+2190-21FF,U+2200-22FF,U+2500-257F,U+25A0-25FF'
 
 root=$(cd "$(dirname "$0")/.." && pwd)
 work=$(mktemp -d)
@@ -22,12 +19,5 @@ for f in 'MapleMono[wght]:MapleMono-VF' 'MapleMono-Italic[wght]:MapleMono-Italic
 done
 cp maple/LICENSE.txt "$root/fonts/maple-mono/OFL.txt"
 
-# Iosevka: static webfonts, cut to $CHARS with every OpenType feature (ligatures included) kept
-curl -sSfL -o iosevka.zip "https://github.com/be5invis/Iosevka/releases/download/v$IOSEVKA/PkgWebFont-Unhinted-Iosevka-$IOSEVKA.zip"
-mkdir -p "$root/fonts/iosevka"
-for s in Regular Bold Italic BoldItalic; do
-  unzip -q -j iosevka.zip "WOFF2-Unhinted/Iosevka-$s.woff2" -d iosevka
-  pyftsubset "iosevka/Iosevka-$s.woff2" --unicodes="$CHARS" --layout-features='*' --flavor=woff2 \
-    --output-file="$root/fonts/iosevka/Iosevka-$s.woff2"
-done
-curl -sSfL -o "$root/fonts/iosevka/OFL.md" "https://raw.githubusercontent.com/be5invis/Iosevka/v$IOSEVKA/LICENSE.md"
+# Iosevka: a custom build from tools/iosevka-build-plan.toml
+"$root/tools/build-iosevka.sh"
