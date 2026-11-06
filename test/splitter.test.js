@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { splitAt, clampSplit, makeSplitter } from "../splitter.js";
+import { splitAt, clampSplit, makeSplitter } from "../scripts/splitter.js";
 
 test("clampSplit keeps both panes at least min", () => {
     assert.equal(clampSplit(0.5), 0.5);

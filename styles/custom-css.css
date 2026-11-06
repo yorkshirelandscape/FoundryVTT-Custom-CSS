@@ -1,42 +1,42 @@
 /* Editor fonts (see fonts/README.md) */
 @font-face {
     font-family: "CCSS Maple Mono";
-    src: url("./fonts/maple-mono/MapleMono-VF.woff2") format("woff2");
+    src: url("../fonts/maple-mono/MapleMono-VF.woff2") format("woff2");
     font-weight: 100 800;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: "CCSS Maple Mono";
-    src: url("./fonts/maple-mono/MapleMono-Italic-VF.woff2") format("woff2");
+    src: url("../fonts/maple-mono/MapleMono-Italic-VF.woff2") format("woff2");
     font-weight: 100 800;
     font-style: italic;
     font-display: swap;
 }
 @font-face {
     font-family: "CCSS Iosevka";
-    src: url("./fonts/iosevka/Iosevka-Regular.woff2") format("woff2");
+    src: url("../fonts/iosevka/Iosevka-Regular.woff2") format("woff2");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: "CCSS Iosevka";
-    src: url("./fonts/iosevka/Iosevka-Bold.woff2") format("woff2");
+    src: url("../fonts/iosevka/Iosevka-Bold.woff2") format("woff2");
     font-weight: 700;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: "CCSS Iosevka";
-    src: url("./fonts/iosevka/Iosevka-Italic.woff2") format("woff2");
+    src: url("../fonts/iosevka/Iosevka-Italic.woff2") format("woff2");
     font-weight: 400;
     font-style: italic;
     font-display: swap;
 }
 @font-face {
     font-family: "CCSS Iosevka";
-    src: url("./fonts/iosevka/Iosevka-BoldItalic.woff2") format("woff2");
+    src: url("../fonts/iosevka/Iosevka-BoldItalic.woff2") format("woff2");
     font-weight: 700;
     font-style: italic;
     font-display: swap;

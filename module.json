@@ -26,11 +26,11 @@
 		}
 	],
     "esmodules": [
-        "./custom-css.js"
+        "scripts/custom-css.js"
     ],
     "socket": true,
     "styles": [
-        "./custom-css.css"
+        "styles/custom-css.css"
     ],
     "languages": [
         {

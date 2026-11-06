@@ -2,7 +2,7 @@
 
 Allows a user to define custom CSS rules in a world!
 
-![custom css ui](./example.png)
+![custom css ui](./docs/example.png)
 
 ## What problem does this solve?
 
