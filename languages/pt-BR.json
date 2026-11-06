@@ -25,7 +25,14 @@
             "worldStylesHint": "Esses estilos se aplicam a todo o mundo.",
             "userStyles": "Estilos do Usuário",
             "userStylesHint": "Esses estilos se aplicam apenas a você.",
-            "btnSave": "Salvar"
+            "btnSave": "Salvar",
+            "resize": "Redimensionar os Painéis do Mundo e do Usuário"
+        },
+        "font": {
+            "label": "Usar Iosevka em vez de Maple Mono",
+            "visit": "{font}: visitar o site da fonte",
+            "settingName": "Fonte do Editor",
+            "settingHint": "A fonte de código utilizada no editor de estilo de ficha."
         }
     }
 }
